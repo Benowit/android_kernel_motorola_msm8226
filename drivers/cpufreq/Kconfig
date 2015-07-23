@@ -121,6 +121,12 @@ config CPU_FREQ_DEFAULT_GOV_INTELLIDEMAND
         help
           Use the CPUFreq governor 'intellidemand' as default.
 
+config CPU_FREQ_DEFAULT_GOV_SMARTMAX
+	bool "smartmax"
+	select CPU_FREQ_GOV_SMARTMAX
+	help
+	  Use the CPUFreq governor 'smartmax' as default
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -229,6 +235,12 @@ config CPU_FREQ_GOV_INTELLIDEMAND
        depends on CPU_FREQ
        help
          This will later have to be done!
+
+config CPU_FREQ_GOV_SMARTMAX
+	tristate "'smartmax' cpufreq policy governor"
+	select CPU_FREQ_TABLE
+	help
+	  'smartmax' combined ondemand and smartass2
 
 config CPU_BOOST
 	tristate "Event base short term CPU freq boost"
