@@ -87,6 +87,8 @@ static bool tick_check_broadcast_device(struct clock_event_device *curdev,
 void tick_install_broadcast_device(struct clock_event_device *dev)
 {
 
+	struct clock_event_device *cur = tick_broadcast_device.evtdev;
+
 	if (!tick_check_broadcast_device(cur, dev))
 		return;
 
